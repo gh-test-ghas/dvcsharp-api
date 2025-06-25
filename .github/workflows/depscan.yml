@@ -29,6 +29,12 @@ jobs:
     steps:
       - name: 'Checkout repository'
         uses: actions/checkout@v4
+      - name: 'Setup .Net'
+        uses: actions/setup-dotnet@v4
+        with: 
+          dotnet-version: '9.x.x'
+      - name: 'Restore'
+        run: dotnet restore
       - name: Component Detection dependency submission action
         uses: advanced-security/component-detection-dependency-submission-action@v0.0.6               
       - name: 'Dependency Review'
